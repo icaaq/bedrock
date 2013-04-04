@@ -7,8 +7,8 @@ if (typeof Mozilla.page === 'undefined') {
 }
 
 Mozilla.page.Home = {
-    'closeText' : 'close',
-    'shareText' : 'Share'
+    'closeText' : $('#strings').data('close'),
+    'shareText' : $('#strings').data('share')
 };
 
 $(document).ready(function() {
