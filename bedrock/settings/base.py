@@ -131,10 +131,14 @@ MINIFY_BUNDLES = {
         ),
         'contact-spaces': (
             'css/libs/mapbox.css',
+            'css/libs/magnific-popup.css',
             'css/mozorg/contact-spaces.less',
         ),
         'contact-spaces-ie8': (
             'css/libs/mapbox.ie.css',
+        ),
+        'contact-spaces-ie7': (
+            'css/mozorg/contact-spaces-ie7.less',
         ),
         'contribute': (
             'css/mozorg/contribute.less',
@@ -195,6 +199,7 @@ MINIFY_BUNDLES = {
         ),
         'firefox_firstrun': (
             'css/sandstone/video.less',
+            'css/base/mozilla-modal.less',
             'css/firefox/firstrun.less',
         ),
         'nightly_firstrun': (
@@ -262,6 +267,7 @@ MINIFY_BUNDLES = {
             'css/firefox/releasenotes.less',
         ),
         'installer_help': (
+            'css/base/mozilla-modal.less',
             'css/firefox/template-resp.less',
             'css/firefox/installer-help.less',
         ),
@@ -406,7 +412,11 @@ MINIFY_BUNDLES = {
             'js/libs/mapbox.js',
             'js/libs/jquery.history.js',
             'js/mozorg/contact-data.js',
+            'js/libs/jquery.magnific-popup.min.js',
             'js/mozorg/contact-spaces.js',
+        ),
+        'contact-spaces-ie7': (
+            'js/mozorg/contact-spaces-ie7.js',
         ),
         'contribute': (
             'js/libs/jquery.sequence.js',
@@ -466,6 +476,7 @@ MINIFY_BUNDLES = {
             'js/firefox/features.js',
         ),
         'firefox_firstrun': (
+            'js/base/mozilla-modal.js',
             'js/firefox/firstrun/firstrun.js',
         ),
         'firefox_firstrun_new_a': (
@@ -533,9 +544,14 @@ MINIFY_BUNDLES = {
             'js/base/mozilla-modal.js',
         ),
         'home': (
+            'js/libs/jquery.ellipsis.min.js',
             'js/libs/jquery.cycle2.min.js',
             'js/libs/jquery.cycle2.carousel.min.js',
             'js/mozorg/home.js',
+        ),
+        'installer_help': (
+            'js/base/mozilla-modal.js',
+            'js/firefox/installer-help.js',
         ),
         'legal_fraud_report': (
             'js/libs/jquery.validate.js',
@@ -875,7 +891,17 @@ DONATE_LOCALE_LINK = {
     'pt-BR': 'https://sendto.mozilla.org/page/contribute/EOYFR2013-webPTBR',
 }
 
+# Official Firefox Twitter accounts
+FIREFOX_TWITTER_ACCOUNTS = {
+    'en-US': 'https://twitter.com/firefox',
+    'es-ES': 'https://twitter.com/firefox_es',
+    'pt-BR': 'https://twitter.com/firefoxbrasil',
+}
+
 # Mapbox token for spaces and communities pages
 MAPBOX_TOKEN = 'examples.map-9ijuk24y'
 
 TABZILLA_INFOBAR_OPTIONS = 'translation'
+
+# Optimize.ly project code for base template JS snippet
+OPTIMIZELY_PROJECT_ID = None

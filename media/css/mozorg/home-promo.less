@@ -83,60 +83,6 @@
     background:         linear-gradient(bottom, rgba(0, 84, 160, .8) 65%, rgba(0, 84, 160, 0) 100%);
 }
 
-
-
-/****************************************************************************/
-// Vans Triple Crown Surfing
-#panel-vans {
-    background: #159391 url(/media/img/home/panel/vans/bg-vtcs-en.jpg) -35px 0 no-repeat;
-
-    // These are presentational wrappers
-    .angle {
-        background: #159391;
-        height: 100%;
-        margin: -50% -50% -50% -25px;
-        padding: 50% 50% 50% 25px;
-        width: 100%;
-        .transform(rotate(5deg));
-
-        .content {
-            .transform(rotate(-5deg));
-        }
-    }
-
-    &.expanded {
-        background-position: -20px 0;
-    }
-
-    &.compressed {
-        background-position: -50px 0;
-    }
-}
-
-.wide #panel-vans .panel-title {
-    background: #159391;
-    background: rgba(21, 147, 145, .8);
-    background: -webkit-linear-gradient(bottom, rgba(21, 147, 145, .8) 65%, rgba(21, 147, 145, 0) 100%);
-    background:    -moz-linear-gradient(bottom, rgba(21, 147, 145, .8) 65%, rgba(21, 147, 145, 0) 100%);
-    background:      -o-linear-gradient(bottom, rgba(21, 147, 145, .8) 65%, rgba(21, 147, 145, 0) 100%);
-    background:         linear-gradient(bottom, rgba(21, 147, 145, .8) 65%, rgba(21, 147, 145, 0) 100%);
-}
-
-// A different image for Brazilian Portuguese
-.lang-pt-BR #panel-vans {
-    background-image: url(/media/img/home/panel/vans/bg-vtcs-pt.jpg);
-}
-
-// A different image for Spanish
-.lang-es-AR #panel-vans,
-.lang-es-CL #panel-vans,
-.lang-es-ES #panel-vans,
-.lang-es-MX #panel-vans {
-    background-image: url(/media/img/home/panel/vans/bg-vtcs-es.jpg);
-}
-
-
-
 /****************************************************************************/
 // MDN
 #panel-mdn {
@@ -179,6 +125,35 @@
     background:    -moz-linear-gradient(bottom, rgba(0, 0, 0, .8) 65%, rgba(0, 0, 0, 0) 100%);
     background:      -o-linear-gradient(bottom, rgba(0, 0, 0, .8) 65%, rgba(0, 0, 0, 0) 100%);
     background:         linear-gradient(bottom, rgba(0, 0, 0, .8) 65%, rgba(0, 0, 0, 0) 100%);
+}
+
+/****************************************************************************/
+// Add-ons
+#panel-addons {
+    background: #e16130 url(/media/img/home/panel/addons/bg-addons-en.png) no-repeat;
+    background: url(/media/img/home/panel/addons/bg-addons-en.png) -10px 0 no-repeat,
+        url(/media/img/home/panel/addons/bg-addons-puzzle.png) no-repeat, #e16130;
+
+    background-position: -10px 0;
+    background-position: -10px 0, right bottom;
+
+    &.expanded {
+        background-position: 0 0, right bottom;
+    }
+
+    &.compressed {
+        background-position: -20px 0, right bottom;
+    }
+}
+
+// A different image for Spanish
+.lang-es-AR #panel-addons,
+.lang-es-CL #panel-addons,
+.lang-es-ES #panel-addons,
+.lang-es-MX #panel-addons {
+    background-image: url(/media/img/home/panel/addons/bg-addons-es.png);
+    background-image: url(/media/img/home/panel/addons/bg-addons-es.png),
+        url(/media/img/home/panel/addons/bg-addons-puzzle.png);
 }
 
 
@@ -447,33 +422,6 @@
         }
     }
 
-    // Vans Triple Crown
-    #panel-vans {
-        background-image: url(/media/img/home/panel/vans/bg-vtcs-en-md.jpg);
-        background-position: -30px 0;
-
-        &.expanded {
-            background-position: -20px 0;
-        }
-
-        &.compressed {
-            background-position: -35px 0;
-        }
-    }
-
-    // A different image for Brazilian Portuguese
-    .lang-pt-BR #panel-vans {
-        background-image: url(/media/img/home/panel/vans/bg-vtcs-pt-md.jpg);
-    }
-
-    // A different image for Spanish
-    .lang-es-AR #panel-vans,
-    .lang-es-CL #panel-vans,
-    .lang-es-ES #panel-vans,
-    .lang-es-MX #panel-vans {
-        background-image: url(/media/img/home/panel/vans/bg-vtcs-es-md.jpg);
-    }
-
     // MDN
     #panel-mdn {
         background-position: -100px -5px;
@@ -484,6 +432,30 @@
             background-position: -120px -5px;
             background-position: -120px -5px, 0 0;
         }
+    }
+
+    // Add-ons
+    #panel-addons {
+        background-image: url(/media/img/home/panel/addons/bg-addons-en-md.png);
+        background-image: url(/media/img/home/panel/addons/bg-addons-en-md.png),
+            url(/media/img/home/panel/addons/bg-addons-puzzle.png);
+
+        background-position: 0 0;
+        background-position: 0 0, right bottom;
+
+        .panel-content > a {
+            padding-left: 240px;
+        }
+    }
+
+    // A different image for Spanish
+    .lang-es-AR #panel-addons,
+    .lang-es-CL #panel-addons,
+    .lang-es-ES #panel-addons,
+    .lang-es-MX #panel-addons {
+        background-image: url(/media/img/home/panel/addons/bg-addons-es-md.png);
+        background-image: url(/media/img/home/panel/addons/bg-addons-es-md.png),
+            url(/media/img/home/panel/addons/bg-addons-puzzle.png);
     }
 
     // Donate
@@ -610,36 +582,6 @@
         }
     }
 
-
-    // Vans Triple Crown Surfing
-    .accordion #panel-vans {  // higher specificity to override locale
-        background-image: url(/media/img/home/panel/vans/bg-vtcs-sm.png);
-        background-position: -50px -145px;
-
-        .angle {
-            background: transparent;
-            margin: 0;
-            padding: 0;
-            width: auto;
-            height: auto;
-            .transform(none);
-
-            .content {
-                .transform(none);
-            }
-        }
-
-        &.expanded {
-            background-position: -50px -60px;
-        }
-
-        &.compressed {
-            background-position: -50px -160px;
-        }
-
-    }
-
-
     // MDN
     #panel-mdn {
         background-image: url(/media/img/home/panel/mdn/bg-logo-mdn-sm.png);
@@ -658,6 +600,36 @@
         .panel-title i {
             color: inherit;
         }
+    }
+
+    // Add-ons
+    #panel-addons {
+        background-image: url(/media/img/home/panel/addons/bg-addons-en-sm.png);
+        background-image: url(/media/img/home/panel/addons/bg-addons-en-sm.png),
+            url(/media/img/home/panel/addons/bg-addons-puzzle-sm.png);
+
+        background-position: -20px -30px;
+        background-position: -20px -30px, right bottom;
+
+        &.expanded {
+            background-position: -20px 0;
+            background-position: -20px 0, right bottom;
+        }
+
+        &.compressed {
+            background-position: -20px -40px;
+            background-position: -20px -40px, right bottom;
+        }
+    }
+
+    // A different image for Spanish
+    .lang-es-AR #panel-addons,
+    .lang-es-CL #panel-addons,
+    .lang-es-ES #panel-addons,
+    .lang-es-MX #panel-addons {
+        background-image: url(/media/img/home/panel/addons/bg-addons-es-sm.png);
+        background-image: url(/media/img/home/panel/addons/bg-addons-es-sm.png),
+            url(/media/img/home/panel/addons/bg-addons-puzzle-sm.png);
     }
 
     // Donate
@@ -810,21 +782,6 @@
         }
     }
 
-
-    // Vans Triple Crown Surfing
-    .accordion #panel-vans { // higher specificity to override locale
-        background-position: -15px -140px;
-
-        &.expanded {
-            background-position: -15px -70px;
-        }
-
-        &.compressed {
-            background-position: -15px -160px;
-        }
-
-    }
-
     //MDN
     #panel-mdn {
         background-position: 10px -20px;
@@ -838,6 +795,22 @@
         &.compressed {
             background-position: 10px -25px;
             background-position: 10px -25px, 0 0;
+        }
+    }
+
+    // Add-ons
+    #panel-addons {
+        background-position: 0 -30px;
+        background-position: 0 -30px, right bottom;
+
+        &.expanded {
+            background-position: 0 0;
+            background-position: 0 0, right bottom;
+        }
+
+        &.compressed {
+            background-position: 0 -40px;
+            background-position: 0 -40px, right bottom;
         }
     }
 
