@@ -30,26 +30,6 @@
 <!--[if lt IE 8]>
   {{ css('home-ie') }}
 <![endif]-->
-
-  {% if request.locale == 'en-US' %}
-    <!-- Google Analytics Content Experiment code -->
-    <script>function utmx_section(){}function utmx(){}(function(){
-      if (! /[?&]s=1+/.test(window.location.search)){
-        var k='71153379-33',d=document,l=d.location,c=d.cookie;
-        if(l.search.indexOf('utm_expid='+k)>0)return;
-        function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
-        indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
-        length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
-        '<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
-        '://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
-        '&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
-        valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
-        '" type="text/javascript" charset="utf-8"><\/sc'+'ript>')
-      }
-    })();
-    </script><script>utmx('url','A/B');</script>
-    <!-- End of Google Analytics Content Experiment code -->
-  {% endif %}
 {% endblock %}
 
 {% block string_data %}
@@ -64,18 +44,6 @@
 <!--[if gt IE 7]> <!-- -->
   {{ js('home') }}
 <!-- <![endif]-->
-{% endblock %}
-
-{% block site_header_nav %}
-  {% if request.locale == 'en-US' and show_search == '1' %}
-    <form title="{{ _('Search Mozilla sites') }}" role="search" method="get" action="https://www.google.com/cse" id="nav-search-form">
-      <input type="hidden" value="002443141534113389537:ysdmevkkknw" name="cx">
-      <input type="hidden" value="FORID:0" name="cof">
-      <input type="search" placeholder="{{ _('Search') }}" id="q-homenav" name="q" class="site-search">
-      <button type="submit" name="submit-search">{{ _('Search') }}</button>
-    </form>
-  {% endif %}
-  {{ super() }}
 {% endblock %}
 
 {% block site_header_logo %}{% endblock %}
@@ -136,99 +104,7 @@
         </div>
       </li>
 
-    {#
-      Restricted to DEV for localization. Another PR will be issued to
-      add the l10n_has_tag function on release day (12/19).
-    #}
-    {% if l10n_has_tag('promo_addons2013') or settings.DEV %}
-      <li id="panel-addons" class="panel" tabindex="0">
-        {# L10n: This <br> is strictly for visual formatting; translations can omit or reposition as needed. #}
-        <h2 class="panel-title">{{ _('See the<br> best add-ons') }}</h2>
-        <div class="panel-inner">
-          <div class="panel-content">
-          {% if request.locale == 'en-US' %}
-            <a href="http://blog.mozilla.org/theden/2013/12/04/13-best-firefox-add-ons-of-2013">
-          {% elif request.locale in ['es-AR', 'es-CL', 'es-ES', 'es-MX'] %}
-            <a href="http://blog.mozilla.org/laguaridadefirefox/2013/12/04/los-13-mejores-complementos-para-firefox-del-2013">
-          {% else %}
-            <a href="https://addons.mozilla.org/firefox/collections/mozilla/best-13-of-2013/">
-          {% endif %}
-              {# L10n: This <br> is strictly for visual formatting; translations can omit or reposition as needed. #}
-              <h3>{{ _('The best add-ons<br> of the year') }}</h3>
-              <p>{{ _('See the top 13 add-ons from 2013, as chosen by our amazing committee of volunteers.') }}</p>
-              <p class="go">{{ _('Add them to Firefox') }}</p>
-            </a>
-          </div>
-        </div>
-      </li>
-    {% else %}
-      <li id="panel-mdn" class="panel" tabindex="0">
-        {# L10n: The active word should be wrapped in <i></i> tags, though it may appear at a different position in the translated title. #}
-        <h2 class="panel-title">{{ _('<i>Join</i> our community') }}</h2>
-        <div class="panel-inner">
-          <div class="panel-content">
-            <a href="https://developer.mozilla.org/">
-              {# L10n: This <br> is strictly for visual formatting; translations can omit or reposition as needed. #}
-              <h3>{{ _('Join our<br> developer community') }}</h3>
-              <p>{{ _('Get docs and demos, tools and tutorials and everything related to the Open Web.') }}</p>
-              <p class="go">{{ _('Visit the Mozilla Developer Network') }}</p>
-            </a>
-          </div>
-        </div>
-      </li>
-    {% endif %}
-
-    {% if l10n_has_tag('promo_donate') or settings.DEV %}
-      <li id="panel-donate" class="panel" tabindex="0">
-        {# L10n: The active word should be wrapped in <i></i> tags, though it may appear at a different position in the translated title. #}
-        <h2 class="panel-title">{{ _('<i>Support</i> Mozilla') }}</h2>
-        <div class="panel-inner">
-          <div class="panel-content">
-            <h3>{{ _('<i>Support</i> Mozilla')|striptags }}</h3>
-            <p>
-              {{ _('Your gift goes directly to programs that help build the web the world needs.') }}
-            </p>
-            <form id="home-promo-donate-form" method="get" action="{{ donate_url() }}">
-              <input type="hidden" name="source" value="banner_people">
-              <fieldset>
-                <legend>{{ _('Your Gift Amount') }}</legend>
-                <label for="donate10">
-                  <input type="radio" value="10" id="donate10" name="amount">
-                  {% if request.locale in ['de', 'fr'] %}
-                    10&nbsp;$
-                  {% elif request.locale == 'pt-BR' %}
-                    US$&nbsp;10
-                  {% else %}
-                    $10
-                  {% endif %}
-                </label>
-                <label for="donate25">
-                  <input type="radio" value="25" id="donate25" name="amount" checked>
-                  {% if request.locale in ['de', 'fr'] %}
-                    25&nbsp;$
-                  {% elif request.locale == 'pt-BR' %}
-                    US$&nbsp;25
-                  {% else %}
-                    $25
-                  {% endif %}
-                </label>
-                <label for="donate50">
-                  <input type="radio" value="50" id="donate50" name="amount">
-                  {% if request.locale in ['de', 'fr'] %}
-                    50&nbsp;$
-                  {% elif request.locale == 'pt-BR' %}
-                    US$&nbsp;50
-                  {% else %}
-                    $50
-                  {% endif %}
-                </label>
-                <button class="button" type="submit">{{ _('Donate') }} »</button>
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </li>
-    {% elif l10n_has_tag('promo_webmaker') or settings.DEV %}
+    {% if l10n_has_tag('promo_webmaker') or settings.DEV %}
       <li id="panel-webmaker" class="panel" tabindex="0">
         {# L10n: The active word should be wrapped in <i></i> tags, though it may appear at a different position in the translated title. #}
         <h2 class="panel-title">{{ _('<i>Learn</i> the Web') }}</h2>
@@ -253,6 +129,38 @@
               <h3>{{ _('Forge the future<br> of the Web') }}</h3>
               <p>{{ _('Learn from some of the most passionate thinkers and inventors from around the world.') }}</p>
               <p class="go">{{ _('Come to the Mozilla Festival') }}</p>
+            </a>
+          </div>
+        </div>
+      </li>
+    {% endif %}
+
+    {% if l10n_has_tag('promo_new_mdn') or settings.DEV %}
+      <li id="panel-mdn" class="panel" tabindex="0">
+        {# L10n: The active word should be wrapped in <i></i> tags, though it may appear at a different position in the translated title. #}
+        <h2 class="panel-title">{{ _('<i>See</i> the new MDN') }}</h2>
+        <div class="panel-inner">
+          <div class="panel-content">
+            <a href="https://developer.mozilla.org/">
+              {# L10n: This <br> is strictly for visual formatting; translations can omit or reposition as needed. #}
+              <h3>{{ _('See what’s new <br>for developers') }}</h3>
+              <p>{{ _('Our community hub for docs, demos and other resources just got a brand new look.') }}</p>
+              <p class="go">{{ _('Visit the Mozilla Developer Network') }}</p>
+            </a>
+          </div>
+        </div>
+      </li>
+    {% else %}
+      <li id="panel-mdn" class="panel" tabindex="0">
+        {# L10n: The active word should be wrapped in <i></i> tags, though it may appear at a different position in the translated title. #}
+        <h2 class="panel-title">{{ _('<i>Join</i> our community') }}</h2>
+        <div class="panel-inner">
+          <div class="panel-content">
+            <a href="https://developer.mozilla.org/">
+              {# L10n: This <br> is strictly for visual formatting; translations can omit or reposition as needed. #}
+              <h3>{{ _('Join our<br> developer community') }}</h3>
+              <p>{{ _('Get docs and demos, tools and tutorials and everything related to the Open Web.') }}</p>
+              <p class="go">{{ _('Visit the Mozilla Developer Network') }}</p>
             </a>
           </div>
         </div>
